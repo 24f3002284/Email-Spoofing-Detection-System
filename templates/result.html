@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Report — {{ filename }}</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: #0f1117; color: #e0e0e0; padding: 24px; }
+  .container { max-width: 820px; margin: 0 auto; }
+
+  /* Top bar */
+  .topbar { display: flex; align-items: center; justify-content: space-between; margin-bottom: 28px; flex-wrap: wrap; gap: 12px; }
+  .topbar h1 { font-size: 1.3em; color: #fff; }
+  .back-btn { padding: 8px 18px; background: #1a1d27; border: 1px solid #2e3348; border-radius: 8px;
+    color: #aaa; text-decoration: none; font-size: 0.88em; transition: all .2s; }
+  .back-btn:hover { border-color: #4f8ef7; color: #4f8ef7; }
+
+  .score-hero {
+    background: #1a1d27;
+    border-radius: 16px;
+    padding: 28px 32px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    flex-wrap: wrap;
+    border-left: 5px solid {{ score_color }};
+  }
+  .score-num { font-size: 3.5em; font-weight: 900; color: {{ score_color }}; line-height: 1; }
+  .score-label { font-size: 0.8em; color: #666; margin-top: 2px; }
+  .verdict-badge {
+    display: inline-block;
+    background: {{ verdict_bg }};
+    color: {{ score_color }};
+    padding: 6px 18px;
+    border-radius: 20px;
+    font-weight: 700;
+    font-size: 0.9em;
+    margin-top: 8px;
+  }
+  .score-bar-track { flex: 1; min-width: 200px; }
+  .score-bar-bg { background: #2e3348; border-radius: 8px; height: 12px; margin-bottom: 16px; }
+  .score-bar-fill { background: {{ score_color }}; border-radius: 8px; height: 12px; width: {{ score }}%; }
+
+  .ded-table { width: 100%; border-collapse: collapse; font-size: 0.88em; }
+  .ded-table td { padding: 5px 8px; }
+  .ded-table .cat { color: #555; width: 80px; }
+  .ded-table .pts { color: #f66; font-weight: 700; width: 40px; }
+  .ded-table .expl { color: #888; font-size: 0.9em; }
+
+  .card { background: #1a1d27; border-radius: 12px; margin-bottom: 16px; overflow: hidden; }
+  .card-header { padding: 13px 20px; font-weight: 700; font-size: 0.9em; background: #13151f;
+    border-bottom: 1px solid #2e3348; color: #bbb; }
+  .card-body { padding: 18px 20px; }
+
+  .info-table { width: 100%; border-collapse: collapse; }
+  .info-table td { padding: 7px 0; vertical-align: top; }
+  .info-table .lbl { color: #555; font-size: 0.85em; width: 150px; padding-right: 12px; }
+  .info-table .val { font-size: 0.93em; word-break: break-all; }
+
+  .badge { display: inline-block; padding: 3px 12px; border-radius: 12px; font-size: 0.82em; font-weight: 700; margin-right: 8px; }
+  .badge-pass { background: #1a3a1a; color: #4caf50; }
+  .badge-fail { background: #3a1a1a; color: #f44336; }
+  .badge-none { background: #222; color: #888; }
+  .badge-softfail { background: #3a2a00; color: #ffa726; }
+  .badge-permerror { background: #3a1a1a; color: #f44336; }
+  .badge-missing { background: #222; color: #888; }
+  .badge-reject { background: #3a1a1a; color: #f44336; }
+  .badge-quarantine { background: #3a2a00; color: #ffa726; }
+
+  .flag-pill { display: inline-block; background: #2a2200; color: #ffa726; border: 1px solid #3a3000;
+    padding: 4px 12px; border-radius: 20px; margin: 4px; font-size: 0.82em; }
+  .flag-ok { color: #4caf50; font-size: 0.9em; }
+
+  .hop { display: flex; gap: 12px; padding: 7px 0; border-bottom: 1px solid #2e3348; font-size: 0.82em; }
+  .hop:last-child { border-bottom: none; }
+  .hop-num { color: #555; min-width: 24px; }
+  .hop-val { color: #aaa; font-family: monospace; word-break: break-all; }
+
+  /* Download btn */
+  .dl-btn { display: inline-block; margin-top: 20px; padding: 10px 22px;
+    background: linear-gradient(135deg, #4f8ef7, #7b5ea7);
+    color: #fff; font-weight: 700; border-radius: 10px; text-decoration: none; font-size: 0.9em; }
+
+  code { font-family: monospace; font-size: 0.85em; color: #aaa; }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <div class="topbar">
+    <h1> Analysis Report &nbsp;<code style="font-size:0.6em;color:#555">{{ filename }}</code></h1>
+    <a href="/" class="back-btn">← Analyse another</a>
+  </div>
+
+  <div class="score-hero">
+    <div>
+      <div class="score-num">{{ score }}</div>
+      <div class="score-label">out of 100</div>
+      <div class="verdict-badge">{{ verdict }}</div>
+    </div>
+    <div class="score-bar-track">
+      <div class="score-bar-bg"><div class="score-bar-fill"></div></div>
+      {% if deductions %}
+      <table class="ded-table">
+        {% for d in deductions %}
+        <tr>
+          <td class="cat">[{{ d.category }}]</td>
+          <td class="pts">-{{ d.deduction }}</td>
+          <td>{{ d.label }}</td>
+          <td class="expl">{{ d.explanation }}</td>
+        </tr>
+        {% endfor %}
+      </table>
+      {% else %}
+      <span style="color:#4caf50;font-size:0.9em"> No deductions — email looks clean</span>
+      {% endif %}
+    </div>
+  </div>
+
+  <!-- Basic information -->
+  <div class="card">
+    <div class="card-header"> Basic Information</div>
+    <div class="card-body">
+      <table class="info-table">
+        <tr><td class="lbl">From</td>      <td class="val">{{ headers.from_address or '—' }}</td></tr>
+        <tr><td class="lbl">To</td>        <td class="val">{{ headers.to or '—' }}</td></tr>
+        <tr><td class="lbl">Subject</td>   <td class="val"><strong>{{ headers.subject or '—' }}</strong></td></tr>
+        <tr><td class="lbl">Date</td>      <td class="val">{{ headers.date or '—' }}</td></tr>
+        <tr><td class="lbl">Message-ID</td><td class="val"><code>{{ headers.message_id or '—' }}</code></td></tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header"> Sender Chain</div>
+    <div class="card-body">
+      <table class="info-table">
+        <tr>
+          <td class="lbl">From address</td>
+          <td class="val">{{ headers.from_address or '—' }}
+            {% if headers.from_domain %}<code>({{ headers.from_domain }})</code>{% endif %}
+          </td>
+        </tr>
+        <tr>
+          <td class="lbl">Return-Path</td>
+          <td class="val">{{ headers.return_path or '—' }}
+            {% if headers.return_path_domain %}<code>({{ headers.return_path_domain }})</code>{% endif %}
+          </td>
+        </tr>
+        <tr>
+          <td class="lbl">Reply-To</td>
+          <td class="val">{{ headers.reply_to or '—' }}
+            {% if headers.reply_to_domain %}<code>({{ headers.reply_to_domain }})</code>{% endif %}
+          </td>
+        </tr>
+        <tr><td class="lbl">Originating IP</td><td class="val"><code>{{ headers.originating_ip or '—' }}</code></td></tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header"> Authentication Results</div>
+    <div class="card-body">
+      <table class="info-table">
+        <tr>
+          <td class="lbl">SPF</td>
+          <td class="val">
+            <span class="badge badge-{{ spf_result }}">{{ spf_result.upper() }}</span>
+            <span style="color:#666;font-size:0.88em">{{ spf_reason }}</span>
+          </td>
+        </tr>
+        <tr>
+          <td class="lbl">DKIM</td>
+          <td class="val">
+            <span class="badge badge-{{ dkim_result }}">{{ dkim_result.upper() }}</span>
+            <span style="color:#666;font-size:0.88em">{{ dkim_reason }}</span>
+          </td>
+        </tr>
+        <tr>
+          <td class="lbl">DMARC</td>
+          <td class="val">
+            <span class="badge badge-{{ dmarc_result }}">{{ dmarc_result.upper() }}</span>
+            <span style="color:#666;font-size:0.88em">{{ dmarc_reason }}</span>
+          </td>
+        </tr>
+        <tr>
+          <td class="lbl">DMARC Policy</td>
+          <td class="val"><span class="badge badge-{{ dmarc_policy }}">{{ dmarc_policy.upper() }}</span></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header"> Header Flags</div>
+    <div class="card-body">
+      {% if headers.flags %}
+        {% for f in headers.flags %}
+          <span class="flag-pill"> {{ f }}</span>
+        {% endfor %}
+      {% else %}
+        <span class="flag-ok"> No suspicious header patterns detected</span>
+      {% endif %}
+    </div>
+  </div>
+
+  {% if headers.received_chain %}
+  <div class="card">
+    <div class="card-header"> Received Chain <span style="color:#555;font-weight:400;font-size:0.85em">(oldest last)</span></div>
+    <div class="card-body">
+      {% for hop in headers.received_chain %}
+      <div class="hop">
+        <div class="hop-num">{{ loop.index }}</div>
+        <div class="hop-val">{{ hop[:140] }}{% if hop|length > 140 %}…{% endif %}</div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+  {% endif %}
+
+  <div style="text-align:center;color:#444;font-size:0.8em;margin-top:24px;padding-bottom:32px">
+    Email Spoofing Detection System &nbsp;·&nbsp; {{ timestamp }}
+  </div>
+</div>
+</body>
+</html>

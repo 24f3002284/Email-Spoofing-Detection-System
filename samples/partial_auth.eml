@@ -1,0 +1,16 @@
+From: newsletter@medium.com
+To: reader@example.com
+Subject: Your weekly digest
+Date: Mon, 11 May 2026 07:00:00 +0000
+Message-ID: <newsletter-456@medium.com>
+Return-Path: <bounce+abc123@medium.com>
+Received: from mail1.medium.com (mail1.medium.com [162.159.135.42])
+        by mx.example.com with ESMTPS id abc999
+        for <reader@example.com>; Mon, 11 May 2026 07:00:00 +0000
+Received-SPF: pass (medium.com: 162.159.135.42 is permitted sender)
+Authentication-Results: mx.example.com;
+        spf=pass smtp.mailfrom=bounce+abc123@medium.com;
+        dkim=none;
+        dmarc=fail (p=none)
+
+Your weekly Medium digest is here!

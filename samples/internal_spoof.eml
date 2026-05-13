@@ -1,0 +1,13 @@
+From: "IT Support" <itsupport@yourcompany.com>
+To: employee@yourcompany.com
+Subject: Password Reset Required - Action Needed
+Date: Mon, 11 May 2026 09:00:00 +0000
+Message-ID: <internal-spoof@external-mail.xyz>
+Return-Path: <bounce@external-mail.xyz>
+Reply-To: harvest@attacker.com
+Received: from mail.external-mail.xyz (external-mail.xyz [185.100.87.202])
+        by mx.yourcompany.com with SMTP id spoof789
+        for <employee@yourcompany.com>; Mon, 11 May 2026 09:00:00 +0000
+X-Originating-IP: 185.100.87.202
+
+Please reset your password immediately by clicking the link below.

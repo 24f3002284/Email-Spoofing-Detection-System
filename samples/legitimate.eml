@@ -1,0 +1,173 @@
+Delivered-To: madrasgoa@gmail.com
+Received: by 2002:a05:7208:1027:b0:103:edf8:6ecd with SMTP id j7csp560279rbn;
+        Tue, 5 May 2026 04:40:05 -0700 (PDT)
+X-Forwarded-Encrypted: i=3; AFNElJ97itLVonRsGZwcHSELhJVps8WpTILbo/N5+Ilsf+HXgTAOmphe5PRV7EVxmNyZB6LveW1aZqPTzC4=@gmail.com
+X-Received: by 2002:a05:6830:461f:b0:7d9:ade1:e19b with SMTP id 46e09a7af769-7e0bfd17557mr1126669a34.14.1777981204895;
+        Tue, 05 May 2026 04:40:04 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1777981204; cv=pass;
+        d=google.com; s=arc-20240605;
+        b=jVMxW6lx4rZ0gUIg7n5LgNfZ/PkhbDdHuR1mCNaZ+4Zpv8xD+wrJvkAFKlZ36Kzurf
+         1NkXuNMrHHTSAloOwEZJAOvJUng8J6SwPqeKd9/0JV2/3aknJGtDmJ12rAjo9uFFCzzk
+         v/UcwDiD79biCtMtqmBnQSkLNTFDZTyCiWgZ+3ie2/IGfJOkwEXhP27QCOsU2EpO4d+x
+         K7/MJgQHb/Mnjz7gHvjePeHdu+355y5qyfBomizoICEp1Xdx6u8F13CnIKbS6KS91+7A
+         7z4RYDUj/XEktSN/vDx2NSr5H7bzuhs2iGuharxbjoaNTwebfEmM7EHV6geWQf7L5Cqm
+         O3hQ==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=to:subject:message-id:date:from:mime-version:dkim-signature;
+        bh=JCBngNVSuZeGB/586j82PXeWfcXM7VDRkZGk9XLUz38=;
+        fh=nDlL8D181etUJkahCY236+HTx8M28gskfCfqC9IaQBQ=;
+        b=eLYgjeIyc6rUK6lSBbPJsQDWJvQFtVvzQhAkwliT5d6s+e2E/d0e/w5WeFSw50KsEk
+         ZEU5sm9dnmw1xm8PqmEynErleh8CJES8wRSxzvSA3xZEeG0+97jG2LZCutm2TtnEofSV
+         sf4J8uCRLuYKCFkXKlnGeoB9NyyqlGiO1mSniSbRy8bShgin2gLDBK5SpyX/SsDEqTgj
+         K/RZzxcJOxlaAHU4Sqv7XLcZTtUciDpGIYJ6aw+0BK3OWcRhib0PTSJ1i7thWT08b8Qa
+         gIjfnaFuJEs44inhnth+PV/DwbBYlKI8ivkm2+QLclk8P/u7+HnwJ9VZ0NLBCQRJ8ILo
+         Fipg==;
+        dara=google.com
+ARC-Authentication-Results: i=2; mx.google.com;
+       dkim=pass header.i=@iitgoa.ac.in header.s=google header.b="e3sk0/jH";
+       arc=pass (i=1);
+       spf=pass (google.com: domain of s.sreelakshmi.24031@iitgoa.ac.in designates 209.85.220.65 as permitted sender) smtp.mailfrom=s.sreelakshmi.24031@iitgoa.ac.in;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=iitgoa.ac.in;
+       dara=pass header.i=@gmail.com
+Return-Path: <s.sreelakshmi.24031@iitgoa.ac.in>
+Received: from mail-sor-f65.google.com (mail-sor-f65.google.com. [209.85.220.65])
+        by mx.google.com with SMTPS id 46e09a7af769-7decabcb4f8sor6146739a34.6.2026.05.05.04.40.04
+        for <madrasgoa@gmail.com>
+        (Google Transport Security);
+        Tue, 05 May 2026 04:40:04 -0700 (PDT)
+Received-SPF: pass (google.com: domain of s.sreelakshmi.24031@iitgoa.ac.in designates 209.85.220.65 as permitted sender) client-ip=209.85.220.65;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@iitgoa.ac.in header.s=google header.b="e3sk0/jH";
+       arc=pass (i=1);
+       spf=pass (google.com: domain of s.sreelakshmi.24031@iitgoa.ac.in designates 209.85.220.65 as permitted sender) smtp.mailfrom=s.sreelakshmi.24031@iitgoa.ac.in;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=iitgoa.ac.in;
+       dara=pass header.i=@gmail.com
+ARC-Seal: i=1; a=rsa-sha256; t=1777981204; cv=none;
+        d=google.com; s=arc-20240605;
+        b=KZhxrO8jq80f05VZgt1wNyt41oqMSF7B6ICKfHc60+7lcdtvfbyCcVS7sbEWHpBIih
+         dTKjw9j/Jl9Ke1HX/8sAp+TeQZhUHb3+eDVpnVXSTKKcy41TXYf4oHGO7N6tbDitHR+z
+         mkegUPZGG+Ijk08dJRLgzTUTUHt0CK6yCZ4D0go0KNTkFyIOWMO6IM++cUfoDDHrGt4g
+         dG0V3yqNycwOcEQmGxrmJEves17+d26zLJzEcsNdvp+XsKXbUKh+M3Y+/jHhU3C9Vg6E
+         2SU7ac9dx9mZ1DHOftnbjB8sRDvnqr8grlVn7nI+a6smEcPPP8IxB5i6aa+1euTh8Xnx
+         3V0A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=to:subject:message-id:date:from:mime-version:dkim-signature;
+        bh=JCBngNVSuZeGB/586j82PXeWfcXM7VDRkZGk9XLUz38=;
+        fh=nDlL8D181etUJkahCY236+HTx8M28gskfCfqC9IaQBQ=;
+        b=SYpCRUP5NL24tTTSdVWp2KMB7pUW3NCx/LYfbJzsgKlpLReDpFw3KMGNBRBbqOgelp
+         Uhj6j0nq/mwrDCqNzeVES4IleO8nu3gRb8YVA9tr0ENn2ac+aBPZKeGTvTDJ+jV7L9T/
+         LiuESGTrF15DfJasBtIUFDKhbJZb9Q73jpMicjgK9v6x0Ql2XavQYGWkp/P3FVryF/1g
+         NPWr+ZnQcge/eOjWR2KSjg7yOqpL+uHRcT+gmmU3f3KkdNWTJ/1qtSwJ1KIhOzzzjZ4J
+         x8oVRigOYZfhkChE5dsbW1MOUN7jiIh0AW/Q6q0AMVFEPdrW4PGrKLUzTIV86eyg/VTm
+         4dvA==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=iitgoa.ac.in; s=google; t=1777981204; x=1778586004; dara=google.com;
+        h=to:subject:message-id:date:from:mime-version:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=JCBngNVSuZeGB/586j82PXeWfcXM7VDRkZGk9XLUz38=;
+        b=e3sk0/jHhYqquj7a/u2xn0P9m9zw7qB+MipexrxQ9XUostmJ8zY3kEN//lkV1zNxiz
+         kjo/miOTsI7SVEjpIWjqWjHCrPtuwggCJDnEbXuA0KatcSOai6ydtR9iA90zQBEoLIZM
+         kvxdyxi21KOHo1nDj0X7rWyVaQMmiwfNZrReWmEzXIU29vwOue9Et0JP7Gb2MuiGWjUK
+         gDvFjLIE+nRvhJIozbtRlZ7OJb3dMsiD3iwUTRg8RoiCHEfNp+VRo9OgfvI9/7CWMwzM
+         jnTGPiilDxuwDKc4fPGqb2jSMNhJ5OJA/YdkjFauQyIqGfaE7SaCRpn0USGw+0Rk5vrs
+         MTNA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1777981204; x=1778586004;
+        h=to:subject:message-id:date:from:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=JCBngNVSuZeGB/586j82PXeWfcXM7VDRkZGk9XLUz38=;
+        b=SVZiiNUtlFPKH6S/4a0p5xr5icVDamW6Dvu7hN39NLsAf14w8n/JVWBuOpn4B2j3Di
+         e1Jyw3FNXYx1Nr08UZPXuvbA8zT1NWDrVQquRFLtC+UxmMT0NQH0FQmO4IrKRcpmW/f5
+         NEY//9nYvBpB8+JpDDd8xghfaqu04lXSggT0cK5hhLgwB7yWYHxod8fMpJokJzpzovvp
+         mF3JyvfpIdnrqoTtkpSG7iyjzjgyuXJeCZknatsaQts/VSPnJ0eiY9UudP2uJXRBquil
+         ME1d9ZYwV5sR4rBvHSt/93NCrP9APVYCzFBoyMwyE+gnTlQN+zu8UBfACfyfRl4brJgu
+         O9pg==
+X-Forwarded-Encrypted: i=1; AFNElJ8lkBeIsVak7FrOICbKwz6sRxN6WtP5nWcd5iDCxkEi4o03lSDKi3nwHDgtbFg+V576YhvHMjkzbPI=@gmail.com
+X-Gm-Message-State: AOJu0Yw/dsAxp0rltCbF39tbSnXpYez66tsINIGa2yKM+tAzpMJ9CZLK
+	RzhCJMJ0s+CCeDOZxCNUMAiHPPN3GHPnPy7BGQmAHuixD15ziS+UWN3GX/zUrRsaQa4RAohwpfW
+	y/mmJbf1NI1cuSRl3oLePRQk50TKRjymhvsnWDOP1MA1+G/8y2EtK3WbDhk7iKNjtaGLYcPNUx2
+	we2G6+hNg2Hmr4MV1LEaw6KQ==
+X-Gm-Gg: AeBDievd60D0e9nvLnNcSBGXzzv211NZTH7g9mALNCmMZspzUv0jvNTSTH+KiYzoC6R
+	jza3i4qvgdebF5n1Kcj3EkAQDzYignYMLfsb5sTyLU73hqcuG12P7CNX/vYdcWJJoAkaf++QVO4
+	mvPjajqvqHElf2jUVEb4KMx/0BWiyYf5eOe/0il/ixiQA2z4UMyQhmDjMGQn4ZtWb+aIRUmHjQB
+	vLhKz9PTNJWgYQhbhxEEees/CJo2+0c0MujFN0ZN0/ioALLtqke06O8YBKKUqmNiaizNbICn+8A
+	M+QohdxhLVXEBbM73IT7xD1qvKtkeunBrInoEwnaFx4tEubcrcI=
+X-Received: by 2002:a05:6820:708c:20b0:696:7f01:94a3 with SMTP id
+ 006d021491bc7-6989163cbd0mr1051229eaf.37.1777981204349; Tue, 05 May 2026
+ 04:40:04 -0700 (PDT)
+MIME-Version: 1.0
+From: S Sreelakshmi <s.sreelakshmi.24031@iitgoa.ac.in>
+Date: Tue, 5 May 2026 17:09:52 +0530
+X-Gm-Features: AVHnY4LtQafikzUtTSDug1_9B_1svmpX5Cp5-eICBwJiE7vzaVVzOcKJ9jNKY6Q
+Message-ID: <CAJyTPQoM=p9uUH7wE7iFX2msCazrpUwKB3nx9ssQdg0VW6Bydg@mail.gmail.com>
+Subject: IIT GOA 2023 2024 PYQS
+To: S Sreelakshmi <s.sreelakshmi.24031@iitgoa.ac.in>, 
+	"madrasgoa@gmail.com" <madrasgoa@gmail.com>, mycollegenotes5@gmail.com, 
+	24F3002284 S SREELAKSHMI <24f3002284@ds.study.iitm.ac.in>
+Content-Type: multipart/alternative; boundary="0000000000001a572906511082d6"
+
+--0000000000001a572906511082d6
+Content-Type: text/plain; charset="UTF-8"
+
+https://drive.google.com/drive/folders/1bv-qc3g1XKnlgehlATmtPK0inGrjy5JG
+
+
+https://drive.google.com/drive/folders/10cz8FcpZme_ravCum1FeDBt89ddDZGt4
+
+-- 
+**************************************************************************
+
+This e-mail is for the sole use of the intended recipient(s) and may
+
+contain confidential and privileged information. If you are not the
+
+intended recipient, please contact the sender by reply e-mail and destroy
+
+all copies and the original message. Any unauthorized review, use,
+
+disclosure, dissemination, forwarding, printing or copying of this email
+
+
+is strictly prohibited and appropriate legal action will be taken. 
+
+
+************************************************************************************************
+
+--0000000000001a572906511082d6
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<div dir=3D"auto"><a href=3D"https://drive.google.com/drive/folders/1bv-qc3=
+g1XKnlgehlATmtPK0inGrjy5JG">https://drive.google.com/drive/folders/1bv-qc3g=
+1XKnlgehlATmtPK0inGrjy5JG</a><div dir=3D"auto"><br></div><div dir=3D"auto">=
+<br></div><div dir=3D"auto"><a href=3D"https://drive.google.com/drive/folde=
+rs/10cz8FcpZme_ravCum1FeDBt89ddDZGt4">https://drive.google.com/drive/folder=
+s/10cz8FcpZme_ravCum1FeDBt89ddDZGt4</a></div></div>
+
+<br>
+<div style=3D"text-align:justify"><span style=3D"background-color:white"><s=
+pan style=3D"font-family:Sans Serif"><span><span>**************************=
+****<span></span><wbr>******************************<span></span><wbr>*****=
+*********</span></span><br>
+<span style=3D"color:blue">This e-mail is for the sole use of the intended =
+recipient(s) and may<br>
+contain confidential and privileged information. If you are not the<span></=
+span><span></span><br>
+intended recipient, please contact the sender by reply e-mail and destroy<b=
+r>
+all copies and the original message. Any unauthorized review, use,<br>
+disclosure, dissemination, forwarding, printing or copying of this email<br=
+></span></span></span></div><div style=3D"text-align:justify"><span style=
+=3D"background-color:white"><span style=3D"font-family:Sans Serif"><span st=
+yle=3D"color:blue">
+is strictly prohibited and appropriate legal action will be taken</span>. <=
+/span></span><br></div><div>
+<span><span><span><span><span><span><span><span><span><span>***************=
+***************<span></span><wbr>******************************<span></span=
+><wbr>******************************<wbr>******</span></span></span></span>=
+</span></span></span></span></span></span>
+
+</div>
+--0000000000001a572906511082d6--

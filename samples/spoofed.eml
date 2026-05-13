@@ -1,0 +1,20 @@
+From: "SBI Bank Security" <security@sbi.co.in>
+To: victim@example.com
+Subject: URGENT: Your account has been suspended - Verify Now
+Date: Mon, 10 May 2026 09:00:00 +0000
+Message-ID: <spoofed-id-123@random-server.xyz>
+Return-Path: <bounce@suspicious-mailer.xyz>
+Reply-To: collect.credentials@gmail.com
+Sender: bulk-mailer@spamservice.ru
+Received: from mail.spamservice.ru (spamservice.ru [185.220.101.45])
+        by mx.victim.com with SMTP id fake123
+        for <victim@example.com>; Mon, 10 May 2026 09:00:00 +0000
+Received: from [192.168.1.100] (unknown) by spamservice.ru; Mon, 10 May 2026 08:59:55 +0000
+X-Originating-IP: 185.220.101.45
+
+Dear Customer,
+
+Your SBI account has been SUSPENDED. Click here immediately to verify:
+http://totally-not-sbi.xyz/verify
+
+SBI Bank Security Team
