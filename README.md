@@ -25,3 +25,7 @@ flask          : Web interface
 email (stdlib) : Email parsing and header extraction
 ipaddress (stdlib) :  CIDR range matching for SPF ip4/ip6
 re (stdlib)    : Regex for header field extraction
+
+Instructions to run this project:
+    Option 1: Type 'python app.py' in terminal,press enter.  and upload .eml files.
+    Option 2: Type 'puthon display.py <file_name.eml>' in terminal and press enter. 
