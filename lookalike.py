@@ -50,13 +50,13 @@ def similarity_percent(s1,s2):
     distance = levenshtein(s1, s2)
     return round((1 - distance / max_len) * 100, 1)
 
-def normalize(domain):
+def _normalize(domain):
     domain = domain.lower().strip()
     if domain.startswith("www."):
         domain = domain[4:] # removing www. 
     return domain
 
-def has_confusable_chars(domain):
+def _has_confusable_chars(domain):
     # checking if domain contains Unicode characters
     found = []
     for char in domain:

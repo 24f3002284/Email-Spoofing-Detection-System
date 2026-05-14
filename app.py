@@ -6,7 +6,7 @@ from flask import Flask, render_template, request, redirect, url_for
 from parser  import parse_email
 from checker import check_spf, check_dkim
 from dmarc   import check_dmarc
-from scorer  import compute_score
+from scorer  import compute_score_with_lookalike as compute_score
 
 app = Flask(__name__)
 app.config["MAX_CONTENT_LENGTH"] = 5 * 1024 * 1024  # 5 MB max upload
@@ -90,6 +90,7 @@ def sample(name):
     samples = {
         "legitimate": "samples/legitimate.eml",
         "spoofed":    "samples/spoofed.eml",
+        "partial auth": "samples/partial_auth.eml"
     }
     path = samples.get(name)
     if not path or not os.path.exists(path):

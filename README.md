@@ -16,3 +16,12 @@ Command to be run in terminal to install DEPENDENCIES: pip install dnspython dki
  
 How to get a real .eml file:
 If email client Gmail, open email, open menu. Click download message.
+
+Tech Stack used:
+dnspython      : DNS TXT record lookups for SPF and DMARC
+dkim           : pyDKIM cryptographic signature verification
+rich           : Colour-coded terminal output
+flask          : Web interface
+email (stdlib) : Email parsing and header extraction
+ipaddress (stdlib) :  CIDR range matching for SPF ip4/ip6
+re (stdlib)    : Regex for header field extraction
