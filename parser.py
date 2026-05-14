@@ -13,16 +13,13 @@ class EmailHeaders:
     return_path: Optional[str]= None           
     sender: Optional[str]= None               
 
-    # Routing fields
     received_chain: list= field(default_factory=list) #we have to use default_factory(list) in order to create a new list during the creation of each object of the class
     originating_ip: Optional[str]= None        
 
-    # Authentication headers
     authentication_results: Optional[str]= None
     dkim_signature: Optional[str]= None
     received_spf: Optional[str]= None
 
-    # Content fields
     subject: Optional[str]= None
     date: Optional[str]= None
     message_id: Optional[str]= None
@@ -32,7 +29,6 @@ class EmailHeaders:
     return_path_domain: Optional[str]= None
     reply_to_domain: Optional[str]= None
 
-    # Suspicious flags detected 
     flags: list= field(default_factory=list)
 
 def _decode_header_value(value): 

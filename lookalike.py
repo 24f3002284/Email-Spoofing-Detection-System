@@ -74,7 +74,7 @@ def check_lookalike(domain, threshold= 80):
     matches = []
 
     for trusted in TRUSTED_DOMAINS:
-        trusted_norm = normalize(trusted)
+        trusted_norm = _normalize(trusted)
 
         # exact match => trusted domain
         if domain_norm == trusted_norm:

@@ -1,16 +1,20 @@
-From: newsletter@medium.com
-To: reader@example.com
+From: newsletter@manorama.co.in
+To: aha48@gmail.com
 Subject: Your weekly digest
-Date: Mon, 11 May 2026 07:00:00 +0000
-Message-ID: <newsletter-456@medium.com>
-Return-Path: <bounce+abc123@medium.com>
-Received: from mail1.medium.com (mail1.medium.com [162.159.135.42])
-        by mx.example.com with ESMTPS id abc999
-        for <reader@example.com>; Mon, 11 May 2026 07:00:00 +0000
-Received-SPF: pass (medium.com: 162.159.135.42 is permitted sender)
-Authentication-Results: mx.example.com;
-        spf=pass smtp.mailfrom=bounce+abc123@medium.com;
-        dkim=none;
-        dmarc=fail (p=none)
+Date: Mon, 11 May 2026 07:00:43 +0000
+Message-ID: <CANv2x7k9mQpLz3Rj8uYeXw1tTsBdF6oHgA2nKc@mail.manorama.co.in>
+MIME-Version: 1.0
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 7bit
+Return-Path: <bounce+abc123@manorama.co.in>
+X-Mailer: Manorama Mailer v2.1
+Received: from mail1.manorama.co.in (mail1.manorama.co.in [162.159.135.42])
+        by mx.gmail.com with ESMTPS id x9-20260511070043
+        for <aha48@gmail.com>; Mon, 11 May 2026 07:00:43 +0000 (UTC)
+Received-SPF: pass (gmail.com: 162.159.135.42 is permitted sender)
+Authentication-Results: mx.gmail.com;
+        spf=pass smtp.mailfrom=bounce+abc123@manorama.co.in;
+        dkim=pass header.d=manorama.co.in;
+        dmarc=pass (p=none) header.from=manorama.co.in
 
-Your weekly Medium digest is here!
+Your weekly digest is here!
